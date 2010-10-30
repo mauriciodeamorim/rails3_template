@@ -50,10 +50,11 @@ run "compass init --using blueprint --app rails --css-dir public/stylesheets"
 
 run "rm public/stylesheets/*"
 
+@core_path = "http://github.com/mauriciodeamorim/rails3_template/raw/master/core"
+get "#{@core_path}/gitignore" ,".gitignore" 
+get "#{@core_path}/factory_girl.rb", "features/support/factory_girl.rb"
+get "#{@core_path}/devise_steps.rb", "features/step_definitions/devise_steps.rb"
 get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
-get "http://github.com/dcrec1/rails3_template/raw/master/gitignore" ,".gitignore" 
-get "http://github.com/dcrec1/rails3_template/raw/master/factory_girl.rb", "features/support/factory_girl.rb"
-get "http://github.com/dcrec1/rails3_template/raw/master/devise_steps.rb", "features/step_definitions/devise_steps.rb"
 
 git :init
 git :add => '.'
