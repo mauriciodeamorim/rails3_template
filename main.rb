@@ -24,16 +24,9 @@ gem 'database_cleaner', ">=0.5.0", :group => :cucumber
 gem 'spork', ">=0.8.4", :group => :cucumber
 gem "pickle", ">=0.4.2", :group => :cucumber
 
-gem "newrelic_rpm", ">=2.12.3", :group => :production
-gem "hoptoad_notifier", '>=2.3.6'
-
-gem 'inploy', '>=1.6.8'
-
 gem 'rails3-generators', :git => "git://github.com/indirect/rails3-generators.git"
 
 run "bundle install"
-
-plugin 'asset_packager', :git => 'git://github.com/sbecker/asset_packager.git'
 
 application  <<-GENERATORS 
 config.generators do |g|
@@ -59,38 +52,10 @@ run "rm public/stylesheets/*"
 
 get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
 get "http://github.com/dcrec1/rails3_template/raw/master/gitignore" ,".gitignore" 
-get "http://github.com/dcrec1/rails3_template/raw/master/screen.scss", "app/stylesheets/screen.scss"
-get "http://github.com/dcrec1/rails3_template/raw/master/print.scss", "app/stylesheets/print.scss"
-get "http://github.com/dcrec1/rails3_template/raw/master/application.html.haml", "app/views/layouts/application.html.haml"
 get "http://github.com/dcrec1/rails3_template/raw/master/factory_girl.rb", "features/support/factory_girl.rb"
 get "http://github.com/dcrec1/rails3_template/raw/master/devise_steps.rb", "features/step_definitions/devise_steps.rb"
-get "http://github.com/dcrec1/rails3_template/raw/master/remarkable.rb", "spec/support/remarkable.rb"
-get "http://github.com/dcrec1/rails3_template/raw/master/users.rb", "spec/support/factories/users.rb"
-get "http://github.com/dcrec1/rails3_template/raw/master/build.rake", "lib/tasks/build.rake"
-get "http://github.com/dcrec1/rails3_template/raw/master/build.sh", "build.sh"
-get "http://github.com/dcrec1/rails3_template/raw/master/overlay.png", "public/images/overlay.png"
-get "http://github.com/dcrec1/rails3_template/raw/master/newrelic.yml", "config/newrelic.yml"
-get "http://github.com/dcrec1/rails3_template/raw/master/hoptoad.rb", "config/initializers/hoptoad.rb"
-get "http://github.com/dcrec1/rails3_template/raw/master/htaccess", "public/.htaccess"
-get "http://github.com/dcrec1/rails3_template/raw/master/asset_packages.yml", "config/asset_packages.yml"
-
-create_file 'config/deploy.rb', <<-DEPLOY
-application = '#{app_name}'
-repository = ''
-hosts = %w() 
-DEPLOY
-
-append_file 'Rakefile', <<-METRIC_FU
-
-MetricFu::Configuration.run do |config|  
-  config.rcov[:rcov_opts] << "-Ispec"  
-end rescue nil
-METRIC_FU
-
-run "chmod u+x build.sh"
 
 git :init
 git :add => '.'
 git :commit => '-am "Initial commit"'
  
-puts "SUCCESS!"
