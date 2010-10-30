@@ -1,3 +1,5 @@
+@core_path = "http://github.com/mauriciodeamorim/rails3_template/raw/master/core"
+
 def commit(message)
   git :add => "."
   git :commit => "-am '#{message}'"
@@ -6,7 +8,9 @@ end
 git :init
 commit "Generate Rails structure"
 
-run "rm -Rf .gitignore README public/index.html public/javascripts/* test app/views/layouts/*"
+apply "#{@core_path}/clean_up.rb"
+commit "Delete unused files"
+
 
 gem "haml-rails", ">= 0.2"
 gem 'inherited_resources', '>=1.1.2'
@@ -58,7 +62,7 @@ run "compass init --using blueprint --app rails --css-dir public/stylesheets"
 
 run "rm public/stylesheets/*"
 
-@core_path = "http://github.com/mauriciodeamorim/rails3_template/raw/master/core"
+
 get "#{@core_path}/gitignore" ,".gitignore" 
 get "#{@core_path}/factory_girl.rb", "features/support/factory_girl.rb"
 get "#{@core_path}/devise_steps.rb", "features/step_definitions/devise_steps.rb"
