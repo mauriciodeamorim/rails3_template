@@ -1,3 +1,11 @@
+def commit(message)
+  git :add => "."
+  git :commit => "-am '#{message}'"
+end
+
+git :init
+commit "Generate Rails structure"
+
 run "rm -Rf .gitignore README public/index.html public/javascripts/* test app/views/layouts/*"
 
 gem "haml-rails", ">= 0.2"
