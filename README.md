@@ -6,4 +6,4 @@
 
 ## Tests with Thor
 
-<code>rails new app_name -JT -m http://github.com/mauriciodeamorim/rails3_template/raw/master/thor.rb</code>
+<pre>rails new app_name -JT -m http://github.com/mauriciodeamorim/rails3_template/raw/master/thor.rb</pre>

@@ -9,7 +9,7 @@ if rvm.blank? || rvm.downcase == "y"
   run "rvm gemset use #{app_name}"
   commit "Gemset #{app_name} with RVM ree1.8.7"
 
-  puts "=== Bundle install require a few minutes and internet connection ==="  
+  say("Bundle install require a few minutes and internet connection", :blue)
   run "rvm ree-1.8.7@#{app_name} gem install bundler"
   run "rvm ree-1.8.7@#{app_name} -S bundle install"
   commit "Install gems with bundle"

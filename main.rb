@@ -24,5 +24,3 @@ apply "#{@core_path}/generators.rb"
 apply "#{@core_path}/files.rb"
 commit "Get files"
 
-run "rake db:migrate"
-
