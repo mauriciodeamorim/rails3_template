@@ -8,6 +8,7 @@ gem 'inherited_resources', '>=1.1.2'
 gem 'rails', '3.0.1'
 gem 'rails3-generators'
 gem 'ruby_parser' # need to generate devise:views
+gem 'sqlite3-ruby'
 gem 'thin'
 gem 'will_paginate', '>=3.0.pre2'
 
