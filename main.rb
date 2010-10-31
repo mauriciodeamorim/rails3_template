@@ -19,19 +19,7 @@ commit "Config tests framework into application file"
 
 apply "#{@core_path}/rvm.rb"
 
-#generate "rspec:install"
-#generate "cucumber:install --capybara --rspec --spork"
-#generate "pickle --path --email"
-#generate "friendly_id"
-#generate "formtastic:install"
-#generate "devise:install"
-#generate "devise User"
-#generate "devise Admin"
-#run "gem install compass"
-#run "compass init --using blueprint --app rails --css-dir public/stylesheets"
-
-#run "rm public/stylesheets/*"
-
+apply "#{@core_path}/generators.rb"
 
 #get "#{@core_path}/gitignore" ,".gitignore" 
 #get "#{@core_path}/factory_girl.rb", "features/support/factory_girl.rb"
