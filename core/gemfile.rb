@@ -5,6 +5,7 @@ source 'http://rubygems.org'
 gem 'devise', '>=1.1.2'
 gem 'hpricot' # need to generate devise:views
 gem 'inherited_resources', '>=1.1.2'
+gem "nifty-generators"
 gem 'rails', '3.0.1'
 gem 'rails3-generators'
 gem 'ruby_parser' # need to generate devise:views
